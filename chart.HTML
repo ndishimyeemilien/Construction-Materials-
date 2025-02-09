@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Materials Market</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #444;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+        }
+        canvas {
+            max-width: 800px;
+            margin: auto;
+        }
+        .contact-form {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>Construction Materials Market</header>
+    <nav>
+        <a href="#chart">Price Chart</a>
+        <a href="#table">Price Table</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+    
+    <div class="container">
+        <h2 id="chart">Material Price Chart</h2>
+        <canvas id="priceChart"></canvas>
+    
+        <h3 id="table">Material Prices Table</h3>
+        <table>
+            <tr>
+                <th>Material</th>
+                <th>Price (RWF)</th>
+            </tr>
+            <tr><td>Cement (50kg)</td><td>12000</td></tr>
+            <tr><td>Sand (per cubic meter)</td><td>15000</td></tr>
+            <tr><td>Bricks (per 1000)</td><td>90000</td></tr>
+            <tr><td>Steel Bars (per kg)</td><td>2500</td></tr>
+            <tr><td>Gravel (per cubic meter)</td><td>20000</td></tr>
+        </table>
+    </div>
+    
+    <div class="contact-form" id="contact">
+        <h3>Contact Us</h3>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('priceChart').getContext('2d');
+        const priceChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Cement', 'Sand', 'Bricks', 'Steel Bars', 'Gravel'],
+                datasets: [{
+                    label: 'Price (RWF)',
+                    data: [12000, 15000, 90000, 2500, 20000],
+                    backgroundColor: ['blue', 'green', 'red', 'purple', 'orange']
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
