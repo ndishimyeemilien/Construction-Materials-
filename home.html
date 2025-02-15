@@ -21,6 +21,10 @@
             <li><a href="products.HTML">Products</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
+                <li><a href="news.html">News</a></li>
+                    <li><a href="login.HTML">Login</a></li>
+   
         </ul>
     </nav>
     </header>
@@ -121,5 +125,22 @@
         <p>&copy; 2025 Photo Gallery. All rights reserved.</p>
     </footer>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.createElement("button");
+            menuButton.classList.add("menu-button");
+            menuButton.innerText = "☰ Menu";
+            
+            const nav = document.querySelector("nav");
+            const navList = document.querySelector("nav ul");
+            
+            nav.insertBefore(menuButton, navList);
+            
+            menuButton.addEventListener("click", function () {
+                navList.classList.toggle("show");
+            });
+        });
+        </script>
+        
 </body>
 </html>
