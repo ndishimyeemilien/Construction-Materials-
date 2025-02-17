@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Materials Market</title>
+    <link rel="stylesheet" href="shopping.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">ConstructionMart</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+    <main>
+        <section class="categories">
+            <h2>Shop by Category</h2>
+            <div class="category-list">
+                <div class="category-item">Cement</div>
+                <div class="category-item">Timber</div>
+                <div class="category-item">Tools</div>
+                <div class="category-item">Plumbing</div>
+            </div>
+        </section>
+
+    
+        <section class="products">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image">
+                    <h3>Cement</h3>
+                    <p>$50 per bag</p>
+                    <button onclick="addToCart('Cement', 50)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image">
+                    <h3>Wood Planks</h3>
+                    <p>$100 per bundle</p>
+                    <button onclick="addToCart('Wood Planks', 100)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image">
+                    <h3>Plumbing Pipes</h3>
+                    <p>$30 per meter</p>
+                    <button onclick="addToCart('Plumbing Pipes', 30)">Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/200" alt="Product Image">
+                    <h3>Power Drill</h3>
+                    <p>$150 each</p>
+                    <button onclick="addToCart('Power Drill', 150)">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2025 ConstructionMart. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
