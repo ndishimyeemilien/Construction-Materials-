@@ -1,150 +1,113 @@
+<!-- <?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and retrieve form data
+    $name = htmlspecialchars($_POST['name']);
+    $email = htmlspecialchars($_POST['email']);
+    $message = htmlspecialchars($_POST['message']);
+    
+    // Recipient email (change to your email address)
+    $to = "nzizajules202@gmail.com";
+
+    // Email subject
+    $subject = "New Contact Form Message";
+
+    // Email body
+    $body = "You have received a new message from your website contact form.\n\n";
+    $body .= "Name: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Message:\n$message";
+
+    // Set the email headers
+    $headers = "From: $email" . "\r\n" .
+               "Reply-To: $email" . "\r\n" .
+               "Content-Type: text/plain; charset=UTF-8";
+
+    // Send the email
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Message sent successfully!";
+    } else {
+        echo "Message sending failed. Please try again later.";
+    }
+}
+?> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="contact.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    
-    <style>
-      /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Contact Form</title>
+  <script>
+        // JavaScript function to validate the form before submission
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-/* Contact Section */
-#contact {
-    background: white;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+            // Check if name is empty
+            if (name == "") {
+                alert("Please enter your name.");
+                return false;
+            }
 
-#contact h2 {
-    margin-bottom: 20px;
-    color: #0537dd;
-}
+            // Check if email is empty or invalid
+            if (email == "") {
+                alert("Please enter your email address.");
+                return false;
+            } else if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
 
-/* Form Styles */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+            // Check if message is empty
+            if (message == "") {
+                alert("Please enter a message.");
+                return false;
+            }
 
-label {
-    font-weight: bold;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-textarea {
-    height: 100px;
-    resize: vertical;
-}
-
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #6508cf;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #222;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-}
-/* Navigation */
-nav {
-    background-color: #0056b3;
-    padding: 10px 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-nav ul li a:hover, nav ul li a[href="home.html"] {
-    background-color: #00408a;
-}
-
-
-    </style>
+            // If everything is valid, return true to allow form submission
+            return true;
+        }
+    </script>
 </head>
 <body>
-  <nav>
-    <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="products.HTML">Products</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-</nav>
-  <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form">
-          <form
-          action="https://formspree.io/f/mnnjzlgp"
-          method="POST"
-        >
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Send</button>
+    <header>
+        <div class="logos">
+            <h2 class="logo">Construction Materials Market</h2>
+            <p>Your one-stop shop for all construction materials.</p>
+        </div>
+        <nav>
+            <button class="menu-button">☰ Menu</button>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.HTML">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="shopping.html">Shop</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2><i class="fas fa-contact"></i> Contact Us</h2>
+        <form action="" method="POST" onsubmit="return validateForm()">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+            <input type="submit" value="Send Message">
         </form>
-    </section>
-<nav>
-    <footer>
-        <p>&copy; 2023 Construction Materials Market. All rights reserved.</p>
-    </footer>
-    </nav>
+    </div>
 </body>
 </html>
